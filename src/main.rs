@@ -1,38 +1,47 @@
 fn main() {
-    let test1 = "ABC123DEF".to_string();
-    let test2 = "123ABC".to_string();
+    println!("Rust Learning Curve - Chapters 1-5");
 
-    assert_eq!(q1_parser(test1), true);
-    assert_eq!(q1_parser(test2), false);
-}
+    // Variables and Data Types
+    let x: i32 = 10;
+    let y: f64 = 3.14;
+    println!("x = {}, y = {}", x, y);
 
-fn is_uppercase_or_digit(c: char) -> bool {
-    is_uppercase_letter(c) || (c >= '0' && c <= '9')
-}
+    // Mutable variable
+    let mut z = 5;
+    z += 2;
+    println!("z = {}", z);
 
-fn is_uppercase_letter(c: char) -> bool {
-    c >= 'A' && c <= 'Z'
-}
-
-fn q1_parser(text: String) -> bool {
-    let characters_array: Vec<char> = text.chars().collect();
-
-    if characters_array.len() < 2 {
-        return false;
+    // If / Else
+    if z > 5 {
+        println!("z is greater than 5");
+    } else {
+        println!("z is 5 or less");
     }
 
-    for (i, character) in characters_array.iter().enumerate() {
-
-        if i == 0 || i == 1 {
-            if !is_uppercase_letter(*character) {
-                return false;
-            }
-        } else {
-            if !is_uppercase_or_digit(*character) {
-                return false;
-            }
-        }
+    // Loop
+    for i in 1..4 {
+        println!("i = {}", i);
     }
 
-    true
+    // Vector (Collection)
+    let numbers = vec![1, 2, 3, 4];
+    for num in numbers {
+        println!("Vector value: {}", num);
+    }
+
+    // Match statement
+    let grade = 'A';
+
+    match grade {
+        'A' => println!("Excellent"),
+        'B' => println!("Good"),
+        _ => println!("Keep improving"),
+    }
+
+    greet("Edwin");
+}
+
+// Function
+fn greet(name: &str) {
+    println!("Hello, {}!", name);
 }
